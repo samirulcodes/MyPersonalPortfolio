@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Professional Portfolio</title>
+    <meta name="description" content="Explore the professional portfolio of Your Name, showcasing expertise in web development, data analysis, and project management. View projects, skills, and contact information.">
+    <meta name="keywords" content="Your Name, portfolio, web development, data analysis, project management, HTML, CSS, JavaScript, Excel, PowerBI, SQL, projects, skills, contact">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="[Your Portfolio URL]">
+    <meta property="og:title" content="Your Name - Professional Portfolio">
+    <meta property="og:description" content="Explore the professional portfolio of Your Name, showcasing expertise in web development, data analysis, and project management. View projects, skills, and contact information.">
+    <meta property="og:image" content="[Link to an image for social sharing, e.g., a profile picture or project screenshot]">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="[Your Portfolio URL]">
+    <meta property="twitter:title" content="Your Name - Professional Portfolio">
+    <meta property="twitter:description" content="Explore the professional portfolio of Your Name, showcasing expertise in web development, data analysis, and project management. View projects, skills, and contact information.">
+    <meta property="twitter:image" content="[Link to an image for social sharing, e.g., a profile picture or project screenshot]">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <header>
+
+        <nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </nav>
+    </header>
+
+    <!-- <div class="language-switcher">
+        <button data-lang="en">English</button>
+        <button data-lang="es">Español</button>
+    </div> -->
+
+    <section id="home">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Hi, I'm Samirul | <span id="typing-text"></span></p>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>This is where I'll introduce myself.</p>
+        <a href="./assets/resume.pdf" download class="button">Download Resume</a>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fab fa-html5"></i>
+                <p>HTML5</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-css3-alt"></i>
+                <p>CSS3</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-js"></i>
+                <p>JavaScript</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-react"></i>
+                <p>React</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-node-js"></i>
+                <p>Node.js</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-python"></i>
+                <p>Python</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <p>MongoDB</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-file-excel"></i>
+                <p>Advanced Excel</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-chart-bar"></i>
+                <p>PowerBI</p>
+            </div>
+            
+            <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <p>SQL</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+            <button class="filter-btn" data-filter="data-science">Data Analysyts</button>
+        </div>
+        <div class="project-grid">
+            <div class="project-item" data-filter="web">
+                <p>"Developed a robust 'Scan_dine' restaurant menu order system.Developed a robust 'Scan_dine' restaurant menu order system where users can scan a QR code to view the menu, select items, and place orders seamlessly. Built with a responsive interface and real-time order management using modern web technologies."</p>
+                <h4>Project: <a href="https://scan-dine-syk0.onrender.com/menu.html?table=1" target="_blank">Scan_dine</a></h4>
+            </div> 
+            <div class="project-item" data-filter="web">
+                <p>"Created an engaging and functional Quiz App.Created an engaging and functional Quiz App that allows users to test their knowledge through multiple-choice questions. The app features a clean UI, real-time score tracking, and instant feedback on answers."</p>
+                <h4>Project: <a href="https://quiz-app-j251.onrender.com/" target="_blank">Quiz App</a></h4>
+            </div>
+                    <div class="project-item" data-filter="data-science">
+                        <p>"T20 Cricket Data Analysis 📊🏏 This project analyzes T20 cricket data using Python, NumPy, Pandas, and Matplotlib. It provides insights into player performances, team statistics, match trends, and various key metrics using data visualization and statistical analysis."</p>
+                        <h4>Project: <a href="https://github.com/samirulcodes/T20_Data-Analysis" target="_blank">T20 Cricket Data Analysis</a></h4>
+                </div>
+            <!-- add more -->
+        </div>
+    </section>
+
+
+
+    <!-- <section id="blog">
+        <h2>Blog / Articles</h2>
+        <div class="blog-posts">
+            <article class="blog-post">
+                <h3>Blog Post Title 1</h3>
+                <p class="post-meta">Date: October 26, 2023 | Category: Web Development</p>
+                <p>This is a short excerpt from my first blog post. It talks about...</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+            <article class="blog-post">
+                <h3>Blog Post Title 2</h3>
+                <p class="post-meta">Date: October 20, 2023 | Category: Data Science</p>
+                <p>This is a short excerpt from my second blog post. It covers topics like...</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+        </div>
+    </section> -->
+
+    <section id="timeline">
+        <h2>My Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-number">1</div>
+                <div class="timeline-content">
+                    <h3>Data Analysyts Intern</h3>
+                    <p>Gained hands-on experience in data analysyts .</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-number">2</div>
+                <div class="timeline-content">
+                    <h3>Full-Stack Developer</h3>
+                    <p>Developed and maintained web applications using various technologies.</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-number">3</div>
+                <div class="timeline-content">
+                    <h3>Bachelor's Degree in Computer Science</h3>
+                    <p>Graduated from Netaji Subhash Engineering Collage with a focus on software engineering.</p>
+                    <p>2022-25</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="github-contributions">
+        <h2>GitHub Contributions</h2>
+        <div class="github-graph-placeholder">
+                            <a href="https://github.com/istebsharul/Crafting-At-Space" target="_blank" rel="noopener noreferrer">
+                                <img src="https://placehold.co/700x180/EFEFEF/grey?text=GitHub+Contribution+Graph" alt="GitHub Contribution Graph Placeholder" class="img-fluid rounded shadow-sm">
+                            </a>
+                            <a href="https://www.craftingatspace.com/"> Crafting-At-Space</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Get in touch with me.</p>
+        <form action="https://api.web3forms.com/submit" method="POST">
+
+            <input type="hidden" name="access_key" value="e05f0856-1dd4-40ee-9e29-020b03fadce8">
+        <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <section id="stats">
+        <h2>My Stats</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3><span class="counter" data-target="10">0</span>+</h3>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat-item">
+                <h3><span class="counter" data-target="2">0</span>+</h3>
+                <p>Years of Experience</p>
+            </div>
+            <div class="stat-item">
+                <h3><span class="counter" data-target="1000">0</span>+</h3>
+                <p>Lines of Code</p>
+            </div>
+        </div>
+    </section>
+
+
+        <footer>
+        <div class="social-links">
+            <!-- <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p>&copy; 2023 My Portfolio. All rights reserved.</p> -->
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About Me</h3>
+                <p>A passionate developer with a focus on creating impactful and user-friendly web applications.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact-info">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Kolkata, India</p>
+                <p><i class="fas fa-envelope"></i> info@example.com</p>
+                <p><i class="fas fa-phone"></i> +91 1234567890</p>
+            </div>
+            <div class="footer-section social-media-links">
+                <h3>Follow Me</h3>
+                <div class="social-links-footer">
+                    <a href="https://www.linkedin.com/in/samirul-islam-3rd-8692862a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/samirulcodes" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/share/19RQKpNHa7/" target="_blank"><i class="fab fa-facebook"></i></a>
+                </div>
+                
+            </div>
+        </div>
+        <p>&copy; 2023 My Portfolio. All rights reserved.</p> 
+    </footer>
+
+    <button id="scrollToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+</html>

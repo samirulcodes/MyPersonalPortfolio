@@ -1,0 +1,1044 @@
+html,
+body {
+    font-family: 'Roboto', sans-serif; /* Modern and clean font */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333; /* Darker text for better contrast */
+    overflow-x: hidden;
+    line-height: 1.7; /* Increased line height for readability */
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+section h2 {
+    font-size: 2.8em; /* Slightly larger headings */
+    color: #2c3e50; /* Dark blue heading color */
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    width: 70px; /* Slightly wider underline */
+    height: 5px; /* Thicker underline */
+    background-color: #007bff; /* A vibrant blue for emphasis */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px; /* More space below heading */
+}
+
+header {
+    background-color: #282c34; /* Darker, modern header */
+    color: #fff;
+    padding: 1.2em 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: sticky; /* Make header sticky */
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 20px; /* Increased spacing */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px; /* More padding and horizontal spacing */
+    display: block;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 500; /* Slightly lighter font weight */
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    color: #61dafb; /* A vibrant blue for hover */
+    background-color: rgba(97, 218, 251, 0.1); /* Subtle background on hover */
+    transform: translateY(-2px); /* Slight lift */
+}
+
+
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 0;
+    display: block;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 250px;
+        height: 100%;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        left: -250px; /* Hidden by default */
+        padding-top: 60px;
+        transition: 0.3s;
+        z-index: 1000;
+    }
+
+    nav ul.active {
+        left: 0; /* Show when active */
+        display: flex; /* Make it visible */
+        justify-content: flex-start; /* Align items to the top */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    nav ul li {
+        text-align: left;
+        margin: 10px 20px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        z-index: 1001;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+section {
+    padding: 80px 20px; /* Increased vertical padding for more breathing room */
+    margin: 30px auto; /* More margin for separation */
+    max-width: 1100px; /* Wider content area */
+    background-color: #ffffff; /* Clean white background */
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* Softer, more diffused shadow */
+    text-align: center; /* Center align content */
+    transition: all 0.3s ease-in-out; /* Smooth transition for dark mode */
+}
+
+section:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Subtle lift on hover */
+}
+
+
+
+#contact form {
+    max-width: 700px; /* Slightly wider form */
+    margin: 40px auto; /* Centered with more margin */
+    padding: 40px; /* More padding */
+    background-color: #ffffff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+    text-align: left; /* Align text left within form */
+    display: flex; /* Added from original to maintain layout */
+    flex-direction: column; /* Added from original to maintain layout */
+}
+
+#contact form label {
+    display: block;
+    margin-bottom: 10px; /* More space */
+    font-weight: 600; /* Bolder labels */
+    color: #2c3e50;
+}
+
+#contact form input[type="text"],
+#contact form input[type="email"],
+#contact form textarea {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 12px; /* More padding */
+    margin-bottom: 20px; /* More space */
+    border: 1px solid #ccc; /* Lighter border */
+    border-radius: 5px; /* Slightly more rounded */
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact form input[type="text"]:focus,
+#contact form input[type="email"]:focus,
+#contact form textarea:focus {
+    border-color: #1abc9c; /* Highlight on focus */
+    box-shadow: 0 0 8px rgba(26, 188, 156, 0.2); /* Soft glow on focus */
+    outline: none;
+}
+
+#contact form button {
+    background-color: #007bff; /* Vibrant blue for button */
+    color: #fff;
+    padding: 14px 30px; /* More padding */
+    border: none;
+    border-radius: 8px; /* More rounded corners */
+    cursor: pointer;
+    font-size: 1.15em; /* Larger font */
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 20px; /* Adjusted to ensure spacing */
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+#contact form button:hover {
+    background-color: #16a085; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 50px 20px; /* More padding */
+    background-color: #282c34; /* Darker footer, consistent with header */
+    color: #e0e0e0; /* Lighter text for better contrast */
+    margin-top: 50px; /* More space from last section */
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.2); /* Softer shadow */
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.95em; /* Slightly larger font */
+    color: #b0b0b0;
+}
+
+.social-links a {
+    color: #61dafb; /* Vibrant blue for social links */
+    margin: 0 12px;
+    font-size: 1.6em; /* Slightly larger icons */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+    color: #007bff; /* Blue on hover */
+    transform: translateY(-3px); /* Slight lift */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    color: #61dafb; /* Vibrant blue for section headings */
+    margin-bottom: 18px;
+    font-size: 20px; /* Slightly larger font */
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #007bff;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+
+
+
+
+.footer-section.contact-info p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-section.contact-info i {
+    margin-right: 10px;
+    color: #61dafb; /* Vibrant blue for icons */
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        text-align: center;
+        padding: 0 10px;
+    }
+}
+
+.social-links-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.social-links-footer a {
+    color: #61dafb; /* Vibrant blue for social links */
+    font-size: 26px; /* Slightly larger icons */
+    margin: 0 12px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links-footer a:hover {
+    color: #007bff; /* Blue on hover */
+    transform: translateY(-3px); /* Slight lift */
+}
+
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed at the bottom right */
+    bottom: 20px;
+    right: 30px;
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #555; /* Set a background color */
+    color: #007bff; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
+
+#scrollToTopBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}
+
+/* Dark Mode Styles */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    position: absolute;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+    background-color: #222;
+}
+
+body.dark-mode nav ul li a {
+    color: #f4f4f4;
+}
+
+body.dark-mode section {
+    background-color: #444;
+    color: #f4f4f4;
+}
+
+body.dark-mode section h2 {
+    color: #f4f4f4;
+}
+
+body.dark-mode nav ul li a {
+    color: #f4f4f4;
+}
+
+body.dark-mode #contact form {
+    background-color: #555; /* Darker background for the form in dark mode */
+}
+
+body.dark-mode #contact form label {
+    color: #f4f4f4;
+}
+
+body.dark-mode .skill-item h3 {
+    color: #f4f4f4;
+}
+
+body.dark-mode .stat-item h3 {
+    color: #f4f4f4;
+}
+
+body.dark-mode .stat-item p {
+    color: #ccc;
+}
+
+body.dark-mode #contact form input,
+body.dark-mode #contact form textarea {
+    background-color: #555;
+    color: #f4f4f4; /* Ensure text is visible */
+    border: 1px solid #666;
+}
+
+
+
+body.dark-mode #contact form input::placeholder,
+body.dark-mode #contact form textarea::placeholder {
+    color: #ccc; /* Lighter color for placeholder text */
+}
+
+body.dark-mode #contact form button {
+    background-color: #2196F3;
+}
+
+.button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* GitHub Contributions Link Styling */
+.github-graph-placeholder a {
+    display: block;
+    margin-top: 10px;
+    color: #007bff; /* A distinct blue color */
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+.github-graph-placeholder a:hover {
+    text-decoration: underline;
+}
+
+/* Project Filtering */
+.filters {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background-color: #eee;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+    margin-bottom: 30px; /* More space between cards */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left; /* Align text left within card */
+}
+
+.project-card:hover {
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25); /* Even deeper shadow on hover */
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px; /* Slightly taller images */
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.project-info {
+    padding: 20px; /* More padding */
+}
+
+.project-info h3 {
+    margin-top: 0;
+    font-size: 1.5em; /* Larger heading */
+    color: #2c3e50; /* Dark blue heading */
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    color: #666;
+    font-size: 1em; /* Slightly larger text */
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.project-info a {
+    display: inline-block;
+    background-color: #1abc9c; /* Highlight color for buttons */
+    color: #fff;
+    padding: 10px 20px; /* More padding */
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.project-info a:hover {
+    background-color: #16a085; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+body.dark-mode .filter-btn {
+    background-color: #555;
+    color: #f4f4f4;
+}
+
+body.dark-mode .filter-btn:hover,
+body.dark-mode .filter-btn.active {
+    background-color: #2196F3;
+}
+
+body.dark-mode .project-item {
+    background-color: #555;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Testimonials Section */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.testimonial-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-item p {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.testimonial-item h4 {
+    text-align: right;
+    color: #555;
+}
+
+body.dark-mode .testimonial-item {
+    background-color: #555;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: #f4f4f4;
+}
+
+body.dark-mode .testimonial-item h4 {
+    color: #bbb;
+}
+
+/* Blog/Articles Section */
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.blog-post {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post h3 {
+    margin-top: 0;
+}
+
+.blog-post .post-meta {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.blog-post .read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.blog-post .read-more:hover {
+    text-decoration: underline;
+}
+
+body.dark-mode .blog-post {
+    background-color: #555;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: #f4f4f4;
+}
+
+body.dark-mode .blog-post .post-meta {
+    color: #bbb;
+}
+
+body.dark-mode .blog-post .read-more {
+    color: #2196F3;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Larger skill items */
+    gap: 30px; /* More space between items */
+    margin-top: 40px;
+    padding: 0 20px; /* Padding for grid */
+}
+
+.skill-item {
+    text-align: center;
+    padding: 25px; /* More padding */
+    background-color: #f0f0f0; /* Lighter background */
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.skill-item i {
+    font-size: 4em; /* Larger icons */
+    margin-bottom: 15px; /* More space below icon */
+    color: #1abc9c; /* Highlight color for icons */
+}
+
+.skill-item h3 {
+    font-size: 1.2em;
+    color: #2c3e50;
+    margin-bottom: 0;
+}
+
+body.dark-mode .skill-item {
+    background-color: #555;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: #f4f4f4;
+}
+
+body.dark-mode .skill-item i {
+    color: #2196F3;
+}
+
+/* Timeline Section */
+#timeline {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #e0e0e0;
+}
+
+#timeline h2 {
+    color: #2c3e50;
+    margin-bottom: 60px;
+    font-size: 2.5em;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #1abc9c; /* Highlight color for the line */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    z-index: 0;
+}
+
+.timeline-item {
+    padding: 10px 0;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.timeline-item.left {
+    left: 0;
+    justify-content: flex-end;
+    padding-right: 70px;
+}
+
+.timeline-item.right {
+    left: 50%;
+    justify-content: flex-start;
+    padding-left: 70px;
+}
+
+.timeline-number {
+    width: 40px;
+    height: 40px;
+    background-color: #1abc9c; /* Highlight color for numbers */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item.left .timeline-number {
+    right: -20px;
+}
+
+.timeline-item.right .timeline-number {
+    left: -20px;
+}
+
+.timeline-content {
+    background-color: #2c3e50; /* Dark background for content boxes */
+    color: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    text-align: left;
+    flex-grow: 1;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.timeline-content h3 {
+    color: #1abc9c; /* Highlight color for headings */
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.timeline-content p {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .timeline::after {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 15px;
+        justify-content: flex-start;
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+        left: 0;
+        padding-right: 15px;
+    }
+
+    .timeline-item.left .timeline-number,
+    .timeline-item.right .timeline-number {
+        left: 0;
+        transform: translateX(-50%);
+    }
+
+    .timeline-number {
+        left: 20px;
+    }
+
+    .timeline-content {
+        text-align: left;
+    }
+}
+
+/* GitHub Contributions */
+.github-graph-placeholder {
+    text-align: center;
+    padding: 40px; /* More padding */
+    background-color: #ffffff; /* Clean white background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin: 20px auto; /* Centered with auto margins */
+    max-width: 1000px; /* Max width for content */
+}
+
+.github-graph-placeholder img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px; /* More space */
+    border: 1px solid #eee; /* Lighter border */
+    border-radius: 8px; /* More rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for image */
+}
+
+body.dark-mode .github-graph-placeholder {
+    background-color: #555;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: #f4f4f4;
+}
+
+body.dark-mode .github-graph-placeholder img {
+    border: 1px solid #666;
+}
+
+/* Stats Section */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Slightly larger items */
+    gap: 30px; /* More space between items */
+    text-align: center;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+.stat-item {
+    background-color: #f0f0f0; /* Lighter background */
+    padding: 30px; /* More padding */
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.stat-item h3 {
+    font-size: 3em; /* Larger numbers */
+    margin-bottom: 10px;
+    color: #1abc9c; /* Highlight color for numbers */
+}
+
+.stat-item p {
+    color: #555;
+    font-size: 1.1em; /* Slightly larger text */
+}
+
+body.dark-mode .stats-grid {
+    color: #f4f4f4;
+}
+
+body.dark-mode .stat-item {
+    background-color: #555;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .stat-item h3 {
+    color: #2196F3;
+}
+
+body.dark-mode .stat-item p {
+    color: #bbb;
+}
+
+/* Language Switcher */
+.language-switcher {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px; /* Add some bottom margin */
+}
+
+.language-switcher button {
+    background-color: #2c3e50; /* Darker button background */
+    color: #fff;
+    border: none;
+    padding: 10px 20px; /* More padding */
+    margin: 0 8px; /* More spacing */
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.language-switcher button:hover {
+    background-color: #1abc9c; /* Highlight color on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+body.dark-mode .language-switcher button {
+    background-color: #2196F3;
+}
+
+body.dark-mode .language-switcher button:hover {
+    background-color: #007bff;
+}
+
+/* Scroll-to-top button */
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 30px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: var(--primary-color); /* Set a background color */
+    color: #007bff; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+    box-shadow: 0 4px 8px var(--shadow-dark);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-3px); /* Lift button slightly on hover */
+}
