@@ -1,16 +1,31 @@
 html,
+:root {
+    /* --primary-color: #007bff; Vibrant Blue */
+    --secondary-color: #6c757d; /* Muted Gray */
+    --accent-color: #28a745; /* Green for success/highlights */
+    --background-light: #f8f9fa; /* Light background */
+    --text-dark: #343a40; /* Dark text */
+    --text-light: #ffffff; /* Light text */
+    --border-color: #dee2e6; /* Light border */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
 body {
     font-family: 'Roboto', sans-serif; /* Modern and clean font */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333; /* Darker text for better contrast */
+    background-color: var(--background-light);
+    color: var(--text-dark); /* Darker text for better contrast */
     overflow-x: hidden;
     line-height: 1.7; /* Increased line height for readability */
-    font-size: 16px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 17px; /* Slightly larger base font size */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions for dark mode */
     opacity: 0;
     animation: fadeIn 1s forwards;
+    background-image: url('https://via.placeholder.com/1920x1080/007bff/ffffff?text=Your+Portfolio+Background'); /* Placeholder background image */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
 }
 
 @keyframes fadeIn {
@@ -24,7 +39,7 @@ body {
 
 section h2 {
     font-size: 2.8em; /* Slightly larger headings */
-    color: #2c3e50; /* Dark blue heading color */
+    color: var(--text-dark); /* Dark blue heading color */
     margin-bottom: 30px;
     position: relative;
     display: inline-block;
@@ -34,7 +49,7 @@ section h2::after {
     content: '';
     width: 70px; /* Slightly wider underline */
     height: 5px; /* Thicker underline */
-    background-color: #007bff; /* A vibrant blue for emphasis */
+    background-color: var(--primary-color); /* A vibrant blue for emphasis */
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -42,21 +57,35 @@ section h2::after {
 }
 
 header {
-    background-color: #282c34; /* Darker, modern header */
-    color: #fff;
+    background-color: var(--text-dark); /* Darker, modern header */
+    color: var(--text-light);
     padding: 1.2em 0;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    position: sticky; /* Make header sticky */
+    box-shadow: 0 4px 10px var(--shadow-color);
+    position: static; /* Make header static, so it hides on scroll */
     top: 0;
     z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Distribute items to ends */
+    align-items: center;
+    max-width: 1200px; /* Match section width */
+    margin: 0 auto; /* Center the nav */
+    padding: 0 20px; /* Add horizontal padding */
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -65,7 +94,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--text-light);
     text-decoration: none;
     padding: 10px 15px; /* More padding and horizontal spacing */
     display: block;
@@ -75,18 +104,20 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #61dafb; /* A vibrant blue for hover */
-    background-color: rgba(97, 218, 251, 0.1); /* Subtle background on hover */
+    color: var(--primary-color); /* A vibrant blue for hover */
+    background-color: rgba(0, 123, 255, 0.1); /* Subtle background on hover */
     transform: translateY(-2px); /* Slight lift */
 }
 
 
 
+/* existing code ... */
+
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--text-dark);
+    color: var(--text-light);
     padding: 1em 0;
-    text-align: center;
+    /* text-align: center; */ /* Removed as flexbox will handle alignment */
 }
 
 nav ul {
@@ -101,7 +132,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--text-light);
     text-decoration: none;
     padding: 5px 0;
     display: block;
@@ -117,18 +148,23 @@ nav ul li a {
 .bar {
     height: 3px;
     width: 25px;
-    background-color: #fff;
+    background-color: var(--text-light);
     margin: 4px 0;
     transition: 0.4s;
 }
 
 @media (max-width: 768px) {
+    .header-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+
     nav ul {
-        display: none;
+        display: none; /* Hidden by default */
         flex-direction: column;
         width: 250px;
         height: 100%;
-        background-color: #333;
+        background-color: var(--text-dark);
         position: fixed;
         top: 0;
         left: -250px; /* Hidden by default */
@@ -151,9 +187,9 @@ nav ul li a {
 
     .menu-toggle {
         display: flex;
-        position: absolute;
-        right: 20px;
-        top: 20px;
+        /* position: absolute; */ /* Removed as it's now part of flex layout */
+        /* right: 20px; */
+        /* top: 20px; */
         z-index: 1001;
     }
 
@@ -168,21 +204,25 @@ nav ul li a {
     .menu-toggle.active .bar:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
     }
+
+    .theme-switch-wrapper {
+        margin-top: 0; /* Adjust margin for mobile */
+    }
 }
 
 section {
-    padding: 80px 20px; /* Increased vertical padding for more breathing room */
-    margin: 30px auto; /* More margin for separation */
-    max-width: 1100px; /* Wider content area */
-    background-color: #ffffff; /* Clean white background */
-    border-radius: 12px; /* Slightly more rounded corners */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* Softer, more diffused shadow */
+    padding: 100px 20px; /* Increased vertical padding for more breathing room */
+    margin: 40px auto; /* More margin for separation */
+    max-width: 1200px; /* Wider content area */
+
+    border-radius: 15px; /* Slightly more rounded corners */
+    box-shadow: 0 8px 25px var(--shadow-color); /* Softer, more diffused shadow */
     text-align: center; /* Center align content */
     transition: all 0.3s ease-in-out; /* Smooth transition for dark mode */
 }
 
 section:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Subtle lift on hover */
+    box-shadow: 0 10px 30px var(--shadow-color); /* More pronounced lift on hover */
 }
 
 
@@ -191,9 +231,9 @@ section:hover {
     max-width: 700px; /* Slightly wider form */
     margin: 40px auto; /* Centered with more margin */
     padding: 40px; /* More padding */
-    background-color: #ffffff; /* White background */
+
     border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+    box-shadow: 0 12px 30px var(--shadow-color); /* More prominent shadow */
     text-align: left; /* Align text left within form */
     display: flex; /* Added from original to maintain layout */
     flex-direction: column; /* Added from original to maintain layout */
@@ -228,8 +268,8 @@ section:hover {
 }
 
 #contact form button {
-    background-color: #007bff; /* Vibrant blue for button */
-    color: #fff;
+    background-color: var(--primary-color); /* Vibrant blue for button */
+    color: var(--text-light);
     padding: 14px 30px; /* More padding */
     border: none;
     border-radius: 8px; /* More rounded corners */
@@ -238,7 +278,7 @@ section:hover {
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     margin-top: 20px; /* Adjusted to ensure spacing */
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3); /* More prominent shadow */
 }
 
 #contact form button:hover {
@@ -248,21 +288,21 @@ section:hover {
 
 footer {
     text-align: center;
-    padding: 50px 20px; /* More padding */
-    background-color: #282c34; /* Darker footer, consistent with header */
-    color: #e0e0e0; /* Lighter text for better contrast */
-    margin-top: 50px; /* More space from last section */
-    box-shadow: 0 -4px 10px rgba(0,0,0,0.2); /* Softer shadow */
+    padding: 20px 20px; /* Reduced padding */
+    background-color: var(--text-dark); /* Darker footer, consistent with header */
+    color: var(--text-light); /* Lighter text for better contrast */
+    margin-top: 30px; /* Reduced space from last section */
+    box-shadow: 0 -6px 15px var(--shadow-color); /* Softer shadow */
 }
 
 footer p {
     margin: 0;
     font-size: 0.95em; /* Slightly larger font */
-    color: #b0b0b0;
+    color: var(--text-light);
 }
 
 .social-links a {
-    color: #61dafb; /* Vibrant blue for social links */
+    color: var(--primary-color); /* Vibrant blue for social links */
     margin: 0 12px;
     font-size: 1.6em; /* Slightly larger icons */
     transition: color 0.3s ease, transform 0.2s ease;
@@ -289,7 +329,7 @@ footer p {
 }
 
 .footer-section h3 {
-    color: #61dafb; /* Vibrant blue for section headings */
+    color: var(--primary-color); /* Vibrant blue for section headings */
     margin-bottom: 18px;
     font-size: 20px; /* Slightly larger font */
     position: relative;
@@ -303,7 +343,7 @@ footer p {
     bottom: 0;
     width: 40px;
     height: 3px;
-    background-color: #007bff;
+    background-color: var(--primary-color);
 }
 
 .footer-section ul {
@@ -316,7 +356,7 @@ footer p {
 }
 
 .footer-section ul li a {
-    color: #e0e0e0;
+    color: var(--text-light);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -333,7 +373,7 @@ footer p {
 
 .footer-section.contact-info i {
     margin-right: 10px;
-    color: #61dafb; /* Vibrant blue for icons */
+    color: var(--primary-color); /* Vibrant blue for icons */
 }
 
 @media (max-width: 768px) {
@@ -355,7 +395,7 @@ footer p {
 }
 
 .social-links-footer a {
-    color: #61dafb; /* Vibrant blue for social links */
+    color: var(--primary-color); /* Vibrant blue for social links */
     font-size: 26px; /* Slightly larger icons */
     margin: 0 12px;
     text-decoration: none;
@@ -375,7 +415,7 @@ footer p {
     z-index: 99; /* Make sure it does not overlap */
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
-    background-color: #555; /* Set a background color */
+    background-color: var(--primary-color); /* Set a background color */
     color: #007bff; /* Text color */
     cursor: pointer; /* Add a mouse pointer on hover */
     padding: 15px; /* Some padding */
@@ -384,27 +424,27 @@ footer p {
 }
 
 #scrollToTopBtn:hover {
-    background-color: #555; /* Add a dark-grey background on hover */
+    background-color: var(--primary-color); /* Add a dark-grey background on hover */
 }
 
 .greeting-text {
-    font-size: 1.2em; /* Make the text bigger */
+    font-size: 1.5em; /* Make the text bigger */
     font-weight: bold;
     color: #333; /* A suitable color, adjust as needed */
 }
 
 .name-color {
-    color: #326193; /* Vibrant blue for the name */
+    color: var(--primary-color); /* Vibrant blue for name */
     font-weight: bold;
-    font-size: 1.2em; /* Slightly larger font size */
-    font-family: 'Montserrat', sans-serif; /* A modern, clean font */
+    font-size: 1.8em; /* Increased font size */
+    font-family: 'Montserrat', sans-serif;
 }
 
 .typing-text-color {
-    color: #24877a; /* Green for the typing text */
+    color: var(--accent-color); /* Green for typing text */
     font-weight: bold;
-    font-size: 1.2em; /* Slightly larger font size */
-    font-family: 'Montserrat', sans-serif; /* A modern, clean font */
+    font-size: 1.8em; /* Increased font size */
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* Dark Mode Styles */
@@ -438,7 +478,7 @@ footer p {
 }
 
 .slider:before {
-    background-color: #fff;
+    background-color: var(--text-light);
     bottom: 4px;
     content: "";
     height: 26px;
@@ -492,7 +532,7 @@ body.dark-mode nav ul li a {
 }
 
 body.dark-mode #contact form {
-    background-color: #555; /* Darker background for the form in dark mode */
+    background-color: var(--primary-color); /* Darker background for the form in dark mode */
 }
 
 body.dark-mode #contact form label {
@@ -513,7 +553,7 @@ body.dark-mode .stat-item p {
 
 body.dark-mode #contact form input,
 body.dark-mode #contact form textarea {
-    background-color: #555;
+    background-color: var(--primary-color);
     color: #f4f4f4; /* Ensure text is visible */
     border: 1px solid #666;
 }
@@ -529,10 +569,29 @@ body.dark-mode #contact form button {
     background-color: #2196F3;
 }
 
+.home-image-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color); /* Primary color border */
+    box-shadow: 0 0 0 10px rgba(0, 123, 255, 0.4); /* More prominent glow */
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-picture:hover {
+    transform: scale(1.05);
+}
+
 .button {
     display: inline-block;
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--text-light);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -576,8 +635,8 @@ body.dark-mode #contact form button {
 
 .filter-btn:hover,
 .filter-btn.active {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--text-light);
 }
 
 .project-grid {
@@ -587,9 +646,9 @@ body.dark-mode #contact form button {
 }
 
 .project-card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+    background-color: var(--background-light); /* White background for project items */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px var(--shadow-color); /* Soft shadow */
     margin-bottom: 30px; /* More space between cards */
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -629,7 +688,7 @@ body.dark-mode #contact form button {
 .project-info a {
     display: inline-block;
     background-color: #1abc9c; /* Highlight color for buttons */
-    color: #fff;
+    color: var(--text-light);
     padding: 10px 20px; /* More padding */
     border-radius: 5px;
     text-decoration: none;
@@ -644,7 +703,7 @@ body.dark-mode #contact form button {
 }
 
 body.dark-mode .filter-btn {
-    background-color: #555;
+    background-color: var(--primary-color);
     color: #f4f4f4;
 }
 
@@ -654,7 +713,7 @@ body.dark-mode .filter-btn.active {
 }
 
 body.dark-mode .project-item {
-    background-color: #555;
+    background-color: var(--primary-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -683,7 +742,7 @@ body.dark-mode .project-item {
 }
 
 body.dark-mode .testimonial-item {
-    background-color: #555;
+    background-color: var(--primary-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     color: #f4f4f4;
 }
@@ -728,7 +787,7 @@ body.dark-mode .testimonial-item h4 {
 }
 
 body.dark-mode .blog-post {
-    background-color: #555;
+    background-color: var(--primary-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     color: #f4f4f4;
 }
@@ -752,9 +811,9 @@ body.dark-mode .blog-post .read-more {
 .skill-item {
     text-align: center;
     padding: 25px; /* More padding */
-    background-color: #f0f0f0; /* Lighter background */
-    border-radius: 10px; /* More rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    background-color: var(--background-light); /* White background for skill items */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 15px var(--shadow-color); /* Soft shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -770,13 +829,13 @@ body.dark-mode .blog-post .read-more {
 }
 
 .skill-item h3 {
-    font-size: 1.2em;
+    font-size: 1.5em;
     color: #2c3e50;
     margin-bottom: 0;
 }
 
 body.dark-mode .skill-item {
-    background-color: #555;
+    background-color: var(--primary-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     color: #f4f4f4;
 }
@@ -841,14 +900,14 @@ body.dark-mode .skill-item i {
 .timeline-number {
     width: 40px;
     height: 40px;
-    background-color: #1abc9c; /* Highlight color for numbers */
-    color: #fff;
+    background-color: var(--accent-color); /* Highlight color for numbers */
+    color: var(--text-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.5em;
     position: absolute;
     z-index: 1;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -863,8 +922,8 @@ body.dark-mode .skill-item i {
 }
 
 .timeline-content {
-    background-color: #2c3e50; /* Dark background for content boxes */
-    color: #fff;
+    background-color: var(--text-dark); /* Dark background for content boxes */
+    color: var(--text-light);
     padding: 25px 30px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
@@ -929,7 +988,7 @@ body.dark-mode .skill-item i {
 .github-graph-placeholder {
     text-align: center;
     padding: 40px; /* More padding */
-    background-color: #ffffff; /* Clean white background */
+
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
     margin: 20px auto; /* Centered with auto margins */
@@ -946,7 +1005,7 @@ body.dark-mode .skill-item i {
 }
 
 body.dark-mode .github-graph-placeholder {
-    background-color: #555;
+    background-color: var(--primary-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     color: #f4f4f4;
 }
@@ -994,7 +1053,7 @@ body.dark-mode .stats-grid {
 }
 
 body.dark-mode .stat-item {
-    background-color: #555;
+    background-color: var(--primary-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -1014,8 +1073,8 @@ body.dark-mode .stat-item p {
 }
 
 .language-switcher button {
-    background-color: #2c3e50; /* Darker button background */
-    color: #fff;
+    background-color: var(--text-dark); /* Darker button background */
+    color: var(--text-light);
     border: none;
     padding: 10px 20px; /* More padding */
     margin: 0 8px; /* More spacing */
@@ -1036,7 +1095,7 @@ body.dark-mode .language-switcher button {
 }
 
 body.dark-mode .language-switcher button:hover {
-    background-color: #007bff;
+    background-color: var(--primary-color);
 }
 
 /* Scroll-to-top button */

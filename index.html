@@ -28,23 +28,27 @@
     <header>
 
         <nav>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="header-left">
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
-            <ul class="nav-list">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" />
-                    <div class="slider round"></div>
-                </label>
+            <div class="header-right">
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                </div>
             </div>
         </nav>
     </header>
@@ -57,12 +61,22 @@
     <section id="home">
         <h1>Welcome to My Portfolio</h1>
         <p><span class="greeting-text">Hi, I'm</span> <span class="name-color">Samirul Islam</span> | <span id="typing-text" class="typing-text-color"></span></p>
+        <div class="home-image-container">
+            <img src="assets/profile.jpg" alt="Samirul Islam Profile Picture" class="profile-picture">
+        </div>
     </section>
 
     <section id="about">
         <h2>About Me</h2>
-        <p>This is where I'll introduce myself.</p>
-        <a href="./assets/resume.pdf" download class="button">Download Resume</a>
+        <div class="about-content">
+            <div class="about-image">
+                <!-- <img src="assets/profile.jpg" alt="Samirul Islam Profile Picture" class="profile-picture"> -->
+            </div>
+            <div class="about-text">
+                <p>As a passionate Data Analyst and Web Developer, I thrive on transforming complex data into actionable insights and crafting intuitive, dynamic web experiences. My journey in technology is driven by a dual fascination: the power of data to tell stories and inform decisions, and the art of building digital solutions that are both functional and beautiful. I am dedicated to continuous learning and eager to contribute to innovative projects that make a real impact.</p>
+                <a style="background-color: rgb(118, 193, 193);" href="./assets/resume.pdf" download class="button">Download Resume</a>
+            </div>
+        </div>
     </section>
 
     <section id="skills">
@@ -208,7 +222,7 @@
             <input type="email" id="email" name="email">
             <label for="message">Message:</label>
             <textarea id="message" name="message"></textarea>
-            <button type="submit">Send</button>
+            <button id="contactForm" type="submit">Send</button>
         </form>
     </section>
 
