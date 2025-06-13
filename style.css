@@ -57,14 +57,15 @@ section h2::after {
 }
 
 header {
-    background-color: var(--text-dark); /* Darker, modern header */
-    color: var(--text-light);
+    background-color: var(--background-light); /* Lighter header for a fresh look */
+    color: var(--text-dark);
     padding: 1.2em 0;
     text-align: center;
-    box-shadow: 0 4px 10px var(--shadow-color);
-    position: static; /* Make header static, so it hides on scroll */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: static;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid var(--border-color); /* Subtle border at the bottom */
 }
 
 nav {
@@ -94,19 +95,20 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--text-light);
+    color: var(--text-dark); /* Darker text for better contrast on light header */
     text-decoration: none;
-    padding: 10px 15px; /* More padding and horizontal spacing */
+    padding: 10px 15px;
     display: block;
     transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-    font-weight: 500; /* Slightly lighter font weight */
+    font-weight: 500;
     border-radius: 5px;
 }
 
 nav ul li a:hover {
-    color: var(--primary-color); /* A vibrant blue for hover */
-    background-color: rgba(0, 123, 255, 0.1); /* Subtle background on hover */
-    transform: translateY(-2px); /* Slight lift */
+    color: var(--primary-color);
+    background-color: rgba(134, 169, 206, 0.1); /* Lighter background on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(134, 169, 206, 0.3); /* Subtle shadow effect */
 }
 
 
@@ -219,13 +221,13 @@ section {
     box-shadow: 0 8px 25px var(--shadow-color); /* Softer, more diffused shadow */
     text-align: center; /* Center align content */
     transition: all 0.3s ease-in-out; /* Smooth transition for dark mode */
+    background-color: rgba(248, 249, 250, 0.7); /* Slightly more transparent background in light mode */
 }
 
 section:hover {
-    box-shadow: 0 10px 30px var(--shadow-color); /* More pronounced lift on hover */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); /* Deeper, more diffused shadow */
+    transform: translateY(-8px) rotateX(2deg); /* Lift and subtle 3D tilt */
 }
-
-
 
 #contact form {
     max-width: 700px; /* Slightly wider form */
@@ -288,10 +290,10 @@ section:hover {
 
 footer {
     text-align: center;
-    padding: 20px 20px; /* Reduced padding */
+    padding: 10px 20px; /* Reduced padding */
     background-color: var(--text-dark); /* Darker footer, consistent with header */
     color: var(--text-light); /* Lighter text for better contrast */
-    margin-top: 30px; /* Reduced space from last section */
+    margin-top: 15px; /* Reduced space from last section */
     box-shadow: 0 -6px 15px var(--shadow-color); /* Softer shadow */
 }
 
@@ -359,9 +361,8 @@ footer p {
     color: var(--text-light);
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 20px;
 }
-
-
 
 
 
@@ -509,17 +510,22 @@ body.dark-mode {
     color: #f4f4f4;
 }
 
-body.dark-mode header,
+body.dark-mode header {
+    background-color: #2c3e50; /* Darker header for dark mode */
+    border-bottom: 1px solid #34495e;
+}
 body.dark-mode footer {
     background-color: #222;
 }
 
-body.dark-mode nav ul li a {
-    color: #f4f4f4;
+body.dark-mode nav ul li a:hover {
+    color: var(--primary-color);
+    background-color: rgba(134, 169, 206, 0.15); /* Even lighter background in dark mode */
+    box-shadow: 0 2px 5px rgba(134, 169, 206, 0.2); /* Subtle shadow effect */
 }
 
 body.dark-mode section {
-    background-color: #444;
+    background-color: rgba(68, 68, 68, 0.7); /* Slightly more transparent background in dark mode */
     color: #f4f4f4;
 }
 
@@ -527,8 +533,10 @@ body.dark-mode section h2 {
     color: #f4f4f4;
 }
 
-body.dark-mode nav ul li a {
-    color: #f4f4f4;
+body.dark-mode nav ul li a:hover {
+    color: var(--primary-color);
+    background-color: rgba(134, 169, 206, 0.15); /* Even lighter background in dark mode */
+    box-shadow: 0 2px 5px rgba(134, 169, 206, 0.2); /* Subtle shadow effect */
 }
 
 body.dark-mode #contact form {
@@ -569,6 +577,88 @@ body.dark-mode #contact form button {
     background-color: #2196F3;
 }
 
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(45deg, #73a9e3, #72adec, #809cba);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animated-background::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px; /* Square with slight rounded corners */
+    animation: moveSquare1 20s infinite alternate;
+}
+
+.animated-background::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 5px; /* Smaller square with slight rounded corners */
+    animation: moveSquare2 25s infinite alternate;
+}
+
+@keyframes moveSquare1 {
+    0% {
+        top: 10%;
+        left: 10%;
+        transform: rotate(0deg) scale(1);
+    }
+    100% {
+        top: 80%;
+        left: 90%;
+        transform: rotate(360deg) scale(1.2);
+    }
+}
+
+@keyframes moveSquare2 {
+    0% {
+        top: 80%;
+        left: 20%;
+        transform: rotate(0deg) scale(1.2);
+    }
+    100% {
+        top: 10%;
+        left: 70%;
+        transform: rotate(-360deg) scale(1);
+    }
+}
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .home-image-container {
     margin-top: 30px;
     text-align: center;
@@ -585,7 +675,7 @@ body.dark-mode #contact form button {
 }
 
 .profile-picture:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) rotateY(10deg);
 }
 
 .button {
@@ -809,17 +899,17 @@ body.dark-mode .blog-post .read-more {
 }
 
 .skill-item {
+    background-color: var(--background-light);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
     text-align: center;
-    padding: 25px; /* More padding */
-    background-color: var(--background-light); /* White background for skill items */
-    border-radius: 8px; /* Slightly rounded corners */
-    box-shadow: 0 4px 15px var(--shadow-color); /* Soft shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-item:hover {
-    transform: translateY(-8px); /* More pronounced lift */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px var(--shadow-color);
 }
 
 .skill-item i {
