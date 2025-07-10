@@ -159,3 +159,63 @@ sections.forEach(section => {
     section.classList.add('fade-in-section'); // Add base class
     observer.observe(section);
 });
+
+
+// Toggle Sales Dashboard Images
+// Remove the previous image toggling code
+// document.querySelectorAll('.toggle-images-btn').forEach(button => {
+//     button.addEventListener('click', () => {
+//         const imageContainer = button.nextElementSibling;
+//         if (imageContainer && imageContainer.classList.contains('sales-dashboard-images')) {
+//             if (imageContainer.style.display === 'none') {
+//                 imageContainer.style.display = 'block';
+//                 button.textContent = 'Hide Sales Dashboard Images';
+//             } else {
+//                 imageContainer.style.display = 'none';
+//                 button.textContent = 'View Sales Dashboard Images';
+//             }
+//         }
+//     });
+// });
+
+// Image Modal/Lightbox functionality
+const modal = document.getElementById('imageModal');
+const modalImage = document.getElementById('modalImage');
+const closeButton = document.querySelector('.close-button');
+const viewDashboardBtn = document.querySelector('.view-dashboard-btn');
+
+const salesDashboardImages = [
+    'assets/1.png',
+    'assets/2.png'
+];
+let slideIndex = 0;
+
+function showSlides(n) {
+    if (n > salesDashboardImages.length - 1) { slideIndex = 0; }
+    if (n < 0) { slideIndex = salesDashboardImages.length - 1; }
+    modalImage.src = salesDashboardImages[slideIndex];
+}
+
+// Open the modal when the button is clicked
+viewDashboardBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+    slideIndex = 0; // Start with the first image
+    showSlides(slideIndex);
+});
+
+// Close the modal when the close button is clicked
+closeButton.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Close the modal when clicking outside the modal content
+window.addEventListener('click', (event) => {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+});
+
+// Next/previous controls
+window.plusSlides = function(n) {
+    showSlides(slideIndex += n);
+};
